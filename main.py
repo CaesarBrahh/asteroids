@@ -1,7 +1,9 @@
 import pygame
 from constants import SCREEN_HEIGHT, SCREEN_WIDTH
-from logger import log_state
+from logger import log_state, log_event
 from player import Player
+from asteroid import Asteroid
+from asteroidfield import AsteroidField
 
 def main():
     # Boot up
@@ -15,14 +17,18 @@ def main():
     clock = pygame.time.Clock()
     dt = 0
 
-    # Grouping
+    # Grouping 
     updatable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
     Player.containers = (updatable, drawable)
+    asteroids = pygame.sprite.Group()
+    Asteroid.containers = (asteroids, updatable, drawable)
+    AsteroidField.containers = (updatable)
 
-    # Instantiate player
+    # Initialize players and asteroids
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
-    
+    asteroid_field = AsteroidField()
+
     # Game loop
     while True:
         log_state()
