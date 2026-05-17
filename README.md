@@ -2,6 +2,8 @@
 
 A classic arcade-inspired space shooter built with Python and Pygame.
 
+![Asteroids Gameplay](media/IMG_3363.GIF)
+
 ## Technologies Used
 
 - Python 3.13
